@@ -9,7 +9,7 @@
 
 	(VRCX などを使わなくても、プレイヤーが再生中の URL を知れるようになる)
 
-	![Thumbnail](Images/VideoURL-iwaSync-1.png)
+![Thumbnail](Images/VideoURL-iwaSync-1.png)
 
 
 ### 設置方法
@@ -22,7 +22,7 @@
 
 	(ただし、ureishi さんの、動画タイトルを表示する YTTL とは、表示する位置がかぶってしまうため、併用はできません。)
 
-	![Install](Images/VideoURL-iwaSync-2.png)
+![Install](Images/VideoURL-iwaSync-2.png)
 
 
 ### 使い方
@@ -35,7 +35,7 @@
 
 	Use Message で表示しているテキスト部分からはコピーはできません。
 
-	![PlayerUse](Images/VideoURL-iwaSync-3.png)
+![PlayerUse](Images/VideoURL-iwaSync-3.png)
 
 
 ### バージョン履歴
@@ -47,7 +47,7 @@
 
 ### 既知の問題
 
-	Message で URL を表示する場合、ureishi さんの YTTL という、動画タイトル表示ツールと競合し、どちらかが表示されない。
+Message で URL を表示する場合、ureishi さんの YTTL という、動画タイトル表示ツールと競合し、どちらかが表示されない。
 
 	これは、videoCore.Message というものを両者が使用しているためである。なお、修正する予定はない。
 	
@@ -80,7 +80,7 @@
 
 	なお、コピー のアイコンは、icons8 のものを一部加工したものを使用しており、その部分には、icons8 の定めるライセンスが別途適用されます。
 
-	[Copy Icon by icons8](https://icons8.jp/icon/SiE2nqZBbw05/%E3%82%B3%E3%83%94%E3%83%BC)
+[Copy Icon by icons8](https://icons8.jp/icon/SiE2nqZBbw05/%E3%82%B3%E3%83%94%E3%83%BC)
 
 ### トラブルが気になる？
 

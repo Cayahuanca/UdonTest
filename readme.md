@@ -14,7 +14,7 @@ Booth で配布したり、Release にあるものは安定しているとは思
 
 ### 何ができる？
 
-	![Thumbnail](Images/VideoURL-iwaSync-1.png)
+![Thumbnail](Images/VideoURL-iwaSync-1.png)
 
 	iwaSync3 で再生中の URL を、表示したり、コピーできるようになる。
 
