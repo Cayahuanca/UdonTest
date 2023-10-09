@@ -3,13 +3,13 @@
 **何ができる？**
 iwaSync3 で再生中の URL を、表示したり、コピーできるようになる。
 (VRCX などを使わなくても、プレイヤーが再生中の URL を知れるようになる)
-[Thumbnail](VideoURL/Readme/Thumbnail.png)
+![Thumbnail](VideoURL/Readme/Thumbnail.png)
 
 **設置方法**
 Scene 内の iwaSync3-Controller/Udon (VideoCOntroller)/Canvas/Panell 内に、Assets/Praecipua/VideoURL/iwaSync/VideoURL.prefab を入れてください。
 次に、Inspector 上で VideoURL についている Player_iwaSync にある、Video Core のところに、Scene 内の iwaSync3-Core/Udon (VideoCore) を指定します。
 Use Message にチェックを入れると、動画再生の時間が表示される部分の上部に URL が常に表示されるようになります。
-[Installl](VideoURL/Readme/Install.png)
+![Installl](VideoURL/Readme/Install.png)
 
 **使い方**
 iwaSync3 で動画を再生すると、iwaSync3 のコントローラーの左側に並んでいるアイコンの一番右に、四角形が2つ重なっているようなボタンが追加されます。
