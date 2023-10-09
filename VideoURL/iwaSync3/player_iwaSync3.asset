@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
-  m_Name: player_iwaSync
+  m_Name: player_iwaSync3
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 06eb324db8f386b4b88d3c210581834d,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: abcf908aabca8cf47b2f799f5ce293fe,
     type: 2}
   udonAssembly: 
   assemblyError: 
@@ -21,7 +21,7 @@ MonoBehaviour:
   compiledVersion: 2
   behaviourSyncMode: 1
   hasInteractEvent: 0
-  scriptID: -9108314463347906064
+  scriptID: 2267949015949483828
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 

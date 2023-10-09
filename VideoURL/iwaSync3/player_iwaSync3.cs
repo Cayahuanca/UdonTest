@@ -8,7 +8,7 @@ using VRC.Udon;
 namespace Praecipua.Udon.VideoURL
 {
     [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
-    public class player_iwaSync : VideoControllerEventListener
+    public class player_iwaSync3 : VideoControllerEventListener
     {
         public VideoCore videoCore;
         public InputField inputField;
@@ -18,7 +18,7 @@ namespace Praecipua.Udon.VideoURL
         {
             if (videoCore == null)
             {
-                Debug.LogError("iwaSync VideoCore is not set.");
+                Debug.LogError("iwaSync3 VideoCore is not set.");
                 return;
             }
 
@@ -28,7 +28,7 @@ namespace Praecipua.Udon.VideoURL
         public override void OnChangeURL()
         {
             string playingURL = videoCore.url.Get();
-            Debug.Log("URL changed. Currently playing URL: " + playingURL);
+            // Debug.Log("URL changed. Currently playing URL: " + playingURL);
 
             inputField.text = playingURL;
 
