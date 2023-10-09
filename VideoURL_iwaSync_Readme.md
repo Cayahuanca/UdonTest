@@ -1,6 +1,8 @@
 ## VideoURL_iwaSync について
 
 
+[Download Unitypackge](VideoURL_iwaSync.unitypackage)
+
 - 何ができる？
 
 	iwaSync3 で再生中の URL を、表示したり、コピーできるようになる。
