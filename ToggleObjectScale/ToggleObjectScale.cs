@@ -43,13 +43,6 @@ namespace Praecipua.Udon
 
             if (isGlobal)   //Global の場合
             {
-                for (int i = 0; i < targetObjectActive.Length; i = i + 1)
-                {
-                    if (targetObjectActive[i] != null)     //配列内の Null チェック
-                    {
-                        isActive[i] = targetObjectActive[i].activeSelf;    //同期変数の Bool を初期化
-                    }
-                }
                 for (int i = 0;i < targetObjectScale.Length; i = i + 1)
                 {
                     if (targetObjectScale[i] != null)     //配列内の Null チェック
@@ -57,22 +50,26 @@ namespace Praecipua.Udon
                         isScaled[i] = false;    //同期変数の Bool を初期化
                     }
                 }
+
+                for (int i = 0; i < targetObjectActive.Length; i = i + 1)
+                {
+                    if (targetObjectActive[i] != null)     //配列内の Null チェック
+                    {
+                        isActive[i] = targetObjectActive[i].activeSelf;    //同期変数の Bool を初期化
+                    }
+                }
             }
         }
 
         public override void Interact()
         {
-            if (!isGlobal)  //Local の場合
-            {
-                SetObjectScaleLocal();    //オブジェクトの Scale を切り替え
-            }
-            if (isGlobal)   //Global の場合
+            if (isGlobal)  //Global の場合
             {
                 if (!Networking.IsOwner(gameObject))
                 {
                     Networking.SetOwner(Networking.LocalPlayer, gameObject);
                 }
-                SetObjectScaleGlobal();   //オブジェクトの Scale を切り替え
+
                 for (int i = 0; i < targetObjectScale.Length; i = i + 1)
                 {
                     if (targetObjectScale[i] != null)     //配列内の Null チェック
@@ -80,6 +77,7 @@ namespace Praecipua.Udon
                         isScaled[i] = !isScaled[i];       //同期変数の Bool を反転
                     }
                 }
+
                 for (int i = 0; i < targetObjectActive.Length; i = i + 1)
                 {
                     if (targetObjectActive[i] != null)     //配列内の Null チェック
@@ -87,7 +85,38 @@ namespace Praecipua.Udon
                         isActive[i] = !isActive[i];       //同期変数の Bool を反転
                     }
                 }
+                SetObjectScaleGlobal();   //オブジェクトの Scale を切り替え
                 RequestSerialization();     //同期をリクエスト
+            }
+            else  //Local の場合
+            {
+                SetObjectScaleLocal();    //オブジェクトの Scale を切り替え
+            }
+        }
+
+        public void SetObjectScaleGlobal()
+        {
+            for (int i = 0; i < targetObjectScale.Length; i = i + 1)
+            {
+                if (targetObjectScale[i] != null)     //配列内の Null チェック
+                {
+                    if (isScaled[i])    // Scale = true の場合、元の Scaleに戻す
+                    {
+                        targetObjectScale[i].transform.localScale = defaultScale[i];
+                    }
+                    else   // Scale != false の場合、Scale = 0 にする
+                    {
+                        targetObjectScale[i].transform.localScale = new Vector3(0, 0, 0);
+                    }
+                }
+            }
+
+            for (int i = 0; i < targetObjectActive.Length; i = i + 1)
+            {
+                if (targetObjectActive[i] != null)     //配列内の Null チェック
+                {
+                    targetObjectActive[i].SetActive(!isActive[i]);    //オブジェクトのアクティブを反映
+                }
             }
         }
 
@@ -104,13 +133,6 @@ namespace Praecipua.Udon
 
         public void SetObjectScaleLocal()     //オブジェクトのアクティブを切り替え
         {
-            for (int i = 0; i < targetObjectActive.Length; i = i + 1)
-            {
-                if (targetObjectActive[i] != null)     //配列内の Null チェック
-                {
-                    targetObjectActive[i].SetActive(!targetObjectActive[i].activeSelf);    //オブジェクトのアクティブを反転
-                }
-            }
             for (int i = 0; i < targetObjectScale.Length; i = i + 1)
             {
                 if (targetObjectScale[i] != null)     //配列内の Null チェック
@@ -125,29 +147,12 @@ namespace Praecipua.Udon
                     }
                 }
             }
-        }
 
-        public void SetObjectScaleGlobal()
-        {
             for (int i = 0; i < targetObjectActive.Length; i = i + 1)
             {
                 if (targetObjectActive[i] != null)     //配列内の Null チェック
                 {
-                    targetObjectActive[i].SetActive(!isActive[i]);    //オブジェクトのアクティブを反映
-                }
-            }
-            for (int i = 0; i < targetObjectScale.Length; i = i + 1)
-            {
-                if (targetObjectScale[i] != null)     //配列内の Null チェック
-                {
-                    if (isScaled[i])    // Scale = true の場合、元の Scaleに戻す
-                    {
-                        targetObjectScale[i].transform.localScale = defaultScale[i];
-                    }
-                    else   // Scale != false の場合、Scale = 0 にする
-                    {
-                        targetObjectScale[i].transform.localScale = new Vector3(0, 0, 0);
-                    }
+                    targetObjectActive[i].SetActive(!targetObjectActive[i].activeSelf);    //オブジェクトのアクティブを反転
                 }
             }
         }
